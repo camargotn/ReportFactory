@@ -3,5 +3,5 @@
 namespace Project.Application;
 public interface IReportFactory
 {
-    ReportResponse CreateReport(ReportRequest request);
+    ReportResponse CreateReport(string reportName);
 }

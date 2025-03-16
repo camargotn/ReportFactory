@@ -1,14 +1,22 @@
 ﻿using Project.Application.BMF;
+using Project.Application.Reports;
 using Project.Communication;
 
 namespace Project.Application;
 public class ReportFactory : IReportFactory
 {
-    public ReportResponse CreateReport(ReportRequest request)
+    private readonly Dictionary<string, IReports> _reports;
+
+    public ReportFactory(IEnumerable<IReports> reports)
     {
-        if (request.ReportName == "BMF")
+        _reports = reports.ToDictionary(report => report.GetType().Name.Replace("Report", ""), report => report);
+    }
+
+    public ReportResponse CreateReport(string reportName)
+    {
+        if (_reports.TryGetValue(reportName, out var report))
         {
-            return new ReportBMF().GenerateReport();
+            return report.GenerateReport();
         }
         else
         {

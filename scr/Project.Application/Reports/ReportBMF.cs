@@ -1,7 +1,8 @@
-﻿using Project.Communication;
+﻿using Project.Application.Reports;
+using Project.Communication;
 
 namespace Project.Application.BMF;
-public class ReportBMF
+public class ReportBMF : IReports
 {
     public ReportResponse GenerateReport()
     {
