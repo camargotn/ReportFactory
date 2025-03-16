@@ -1,6 +1,6 @@
-# Project.Api
+## Report Factory
 
-## About the Project
+### About the Project
 
 This **API**, developed using **.NET 8**, follows the principles of **Domain-Driven Design (DDD)** to provide a structured and efficient solution for generating various reports. The main objective is to allow users to request different types of reports, with the data being processed and returned in a structured format.
 
